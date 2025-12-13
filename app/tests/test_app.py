@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import random
 
 client = TestClient(app)
-
+# test for input validation
 class TestInputValidation(unittest.TestCase):
 
     def test_missing_fields(self):
@@ -43,7 +43,7 @@ class TestInputValidation(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn("message", response.json())
 
-
+# test for Api endpoints
 class TestAPIEndpoints(unittest.TestCase):
 
     def test_get_data(self):
@@ -63,7 +63,7 @@ class TestAPIEndpoints(unittest.TestCase):
         ]:
             self.assertIn(key, data)
 
-
+# test for SMA strategy
 class TestSMAConsistency(unittest.TestCase):
 
     def test_sma_calculation(self):
