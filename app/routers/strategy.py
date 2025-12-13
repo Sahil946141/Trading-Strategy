@@ -68,18 +68,18 @@ def sma_strategy_performance():
                     best_return = round(cumulative_return, 2)
                     best_short = s
                     best_long = l
-                    final = temp # Store the DataFrame for the best parameters
+                    final = temp 
         
         # Now use the best parameters found
 
         cumulative_return = best_return
 
-        # BUY / SELL DATES for the BEST strategy
+        # Buy / Sell DATES for the BEST strategy
 
         buy_dates = final.loc[final["signal"] == 1, "datetime"].dt.strftime("%Y-%m-%d").tolist()
         sell_dates = final.loc[final["signal"] == -1, "datetime"].dt.strftime("%Y-%m-%d").tolist()
         
-        # FINAL JSON RESPONSE
+        # Final json response
         return {
             "strategy": "Simple SMA Crossover With Optimization",
             "best_short_sma": best_short,
